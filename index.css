@@ -1,0 +1,120 @@
+body {
+    background-image: url('background.jpg');
+}
+
+#wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: repeat(2, 47fr) 6fr;
+    height: calc(100vh - 20px);
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+}
+
+#wrapper>div {
+    border: dashed 1px white;
+    border-radius: 4px;
+}
+
+#wrapper>div.footer {
+    border: none;
+    font-size: x-large;
+}
+
+#wrapper .label {
+    color: #666;
+    font-size: x-large;
+}
+
+#wrapper .value {
+    padding-bottom: 10px;
+}
+
+.detail {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding: 20px;
+}
+
+.horizon {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.horizon>img {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 100%;
+}
+
+.horizon>img#horizon-bezel {
+    transform: scale(0.82);
+}
+
+.horizon>img#horizon-background {
+    transform: scale(0.71) rotate(45deg);
+}
+
+.horizon>img#horizon-plane {
+    transform: scale(0.58);
+    position: relative;
+    top: -5px;
+}
+
+.map {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    height: 100%;
+}
+
+.map>div {
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: groove;
+    border-width: 1px;
+}
+
+.footer {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    display: flex;
+}
+
+.footer .items {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-items:stretch;
+    flex-grow:1;
+}
+
+.footer .left {
+    justify-content: flex-start;
+}
+
+.footer .right {
+    justify-content: flex-end;
+}
+
+.footer .item {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.footer .footer-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
