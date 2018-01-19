@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background-image: url('background.jpg');
+        }
+
+        #wrapper {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: 400px 1fr;
+            grid-template-rows: repeat(2, 47fr) 6fr;
+            height: calc(100vh - 20px);
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: xx-large;
+        }
+
+        #wrapper>div {
+            border: dashed 1px white;
+            border-radius: 4px;
+        }
+
+        #wrapper>div.footer {
+            border: none;
+            font-size: x-large;
+        }
+
+        #wrapper .label {
+            color: #666;
+            font-size: x-large;
+        }
+
+        #wrapper .value {
+            padding-bottom: 10px;
+        }
+
+        .detail {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            padding: 20px;
+        }
+
+        .horizon {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .horizon>img {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            width: 100%;
+        }
+
+        .horizon>img#horizon-bezel {
+            transform: scale(0.82);
+        }
+
+        .horizon>img#horizon-background {
+            transform: scale(0.71) rotate(45deg);
+        }
+
+        .horizon>img#horizon-plane {
+            transform: scale(0.58);
+            position: relative;
+            top: -5px;
+        }
+
+        .map {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            height: 100%;
+        }
+
+        .map>div {
+            border-color: rgba(255, 255, 255, 0.2);
+            border-style: groove;
+            border-width: 1px;
+        }
+
+        .footer {
+            grid-column: 1 / 3;
+            grid-row: 3 / 4;
+            display: flex;
+        }
+
+        .footer .items {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            align-items:stretch;
+            flex-grow:1;
+        }
+
+        .footer .left {
+            justify-content: flex-start;
+        }
+
+        .footer .right {
+            justify-content: flex-end;
+        }
+
+        .footer .item {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .footer-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+    </style>
+    <title>FlySim</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="detail">
+            <div class="label">
+                Airspeed
+            </div>
+            <div class="value">
+                <span id="airspeed">384</span> mpg
+            </div>
+            <div class="label">
+                Heading
+            </div>
+            <div class="value">
+                <span id="heading">47</span>&deg;
+                <span id="cardinal-direction">NW</span>
+                </span>
+            </div>
+            <div class="label">
+                Altitude
+            </div>
+            <div class="value">
+                <span id="altitude">28,892</span> ft
+            </div>
+        </div>
+        <div class="horizon">
+            <img id="horizon-outer-ring" src="horizon-outer-ring.png" />
+            <img id="horizon-background" src="horizon-background.png" />
+            <img id="horizon-bezel" src="horizon-bezel.png" />
+            <img id="horizon-plane" src="horizon-plane.png" />
+        </div>
+        <div class="map">
+        </div>
+        <div class="footer">
+            <div class="items left">
+                <div class="item">
+                    <img src="thermometer.svg" class="footer-icon">
+                    <span id="temperature">72.0</span>&deg;F
+                </div>
+                <div class="item">
+                    <img src="humidity.svg" class="footer-icon">
+                    <span id="humidity">59</span>%
+                </div>
+                <div class="item">
+                    <img src="clock.svg" class="footer-icon">
+                    <span id="time">08:52:26</span>
+                </div>
+            </div>
+            <div class="items right">
+                <div class="item">
+                    <img src="chip.svg" class="footer-icon">
+                    <select id="language">
+                        <option value="en-us">English</option>
+                        <option value="fr-fr">French</option>
+                        <option value="es-es">Spanish</option>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let mapgrid = document.querySelector('.map');
+    for (let i = 0; i < 144; i++) {
+        mapgrid.appendChild(document.createElement('div'));
+    }
+</script>
+
+</html>
