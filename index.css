@@ -10,7 +10,6 @@ body {
     height: calc(100vh - 20px);
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 50px;
 }
 
 #wrapper>div {
@@ -23,19 +22,21 @@ body {
     font-size: x-large;
 }
 
-#wrapper .label {
+
+.detail .label {
     color: #666;
-    font-size: 40px;
+    font-size: 1.8vw;
 }
 
-#wrapper .value {
-    padding-bottom: 10px;
+.detail .value {
+    font-size: 2.1vw;
+    padding-bottom: 0.5vw;
 }
 
 .detail {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    padding: 40px;
+    padding: 2vw;
 }
 
 .horizon {
@@ -117,4 +118,26 @@ body {
     height: 24px;
     margin-left: 4px;
     margin-right: 4px;
+}
+
+@media(max-height: 740px) {
+    .detail {
+        display:none;
+    }
+
+    .horizon {
+        grid-row: 1 / 2;
+    }
+}
+
+@media(max-width: 600px) {
+    .detail {
+        display:none;
+    }
+    .horizon {
+        display:none;
+    }
+    .map {
+        grid-column: 1 / 3;
+    }
 }
